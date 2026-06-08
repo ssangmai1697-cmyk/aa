@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상담 서비스</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Pretendard',sans-serif;
+    background:#f5f7fb;
+    color:#222;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:20px;
+}
+
+.banner{
+    margin-bottom:20px;
+}
+
+.banner img{
+    width:100%;
+    display:block;
+    border-radius:16px;
+}
+
+.quick-menu{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin:30px 0;
+}
+
+.quick-menu a{
+    display:block;
+}
+
+.quick-menu img{
+    width:100%;
+    border-radius:12px;
+}
+
+.section{
+    background:#fff;
+    padding:40px;
+    border-radius:16px;
+    margin-bottom:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.section h2{
+    margin-bottom:15px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#f8f9fc;
+    padding:20px;
+    border-radius:12px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    display:inline-block;
+    padding:15px 30px;
+    background:#1e55d6;
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
+    margin-top:20px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
+
+@media(max-width:768px){
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.quick-menu{
+    grid-template-columns:1fr;
+}
+
+.section{
+    padding:25px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="banner">
+        <img src="images/banner1.jpg" alt="1-1">
+    </div>
+
+    <div class="banner">
+        <img src="images/banner2.jpg" alt="1-2">
+    </div>
+
+    <div class="quick-menu">
+        <a href="#contact">
+            <img src="images/message.jpg" alt="1-전화">
+<a href="tel:01031425685">
+        </a>
+
+        <a href="tel:01012345678">
+            <img src="images/call.jpg" alt="1-문자">
+<a href="sms:01031425685">
+        </a>
+    </div>
+
+    <section class="section">
+        <h2>서비스 소개</h2>
+        <p>
+            여기에 회사 소개 및 서비스 설명을 입력하세요.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>이용 안내</h2>
+
+        <div class="features">
+            <div class="card">
+                <h3>STEP 01</h3>
+                <p>상담 신청</p>
+            </div>
+
+            <div class="card">
+                <h3>STEP 02</h3>
+                <p>내용 확인</p>
+            </div>
+
+            <div class="card">
+                <h3>STEP 03</h3>
+                <p>서비스 진행</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <h2>문의하기</h2>
+        <p>궁금한 내용을 문의해 주세요.</p>
+
+        <a href="tel:01031425685">
+            전화 상담
+        </a>
+    </section>
+
+</div>
+
+<footer>
+    © 2026 Company. All Rights Reserved.
+</footer>
+
+</body>
+</html>
