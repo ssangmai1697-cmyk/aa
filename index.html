@@ -3,181 +3,559 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>상담 서비스</title>
+
+<title>금융상담센터</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --primary:#2157D5;
+    --primary-dark:#0F3E83;
+    --secondary:#56B7FF;
+    --light:#F5F8FC;
+    --white:#FFFFFF;
+    --text:#222;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Pretendard',sans-serif;
-    background:#f5f7fb;
-    color:#222;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.6;
 }
 
 .container{
-    width:100%;
+    width:90%;
     max-width:1200px;
-    margin:0 auto;
-    padding:20px;
+    margin:auto;
 }
 
-.banner{
-    margin-bottom:20px;
-}
-
-.banner img{
+header{
+    position:fixed;
     width:100%;
-    display:block;
-    border-radius:16px;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
 }
 
-.quick-menu{
+.nav{
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:var(--primary-dark);
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0F3E83 0%,
+    #2157D5 50%,
+    #56B7FF 100%
+    );
+
+    color:#fff;
+}
+
+.hero-inner{
     display:grid;
     grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:50px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+}
+
+.hero h1{
+    font-size:4rem;
+    margin:20px 0;
+    font-weight:800;
+}
+
+.hero p{
+    font-size:1.15rem;
+    opacity:.95;
+}
+
+.hero-btns{
+    display:flex;
     gap:15px;
-    margin:30px 0;
+    margin-top:35px;
 }
 
-.quick-menu a{
-    display:block;
+.btn{
+    padding:18px 34px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
 }
 
-.quick-menu img{
-    width:100%;
-    border-radius:12px;
-}
-
-.section{
+.btn-primary{
     background:#fff;
-    padding:40px;
-    border-radius:16px;
-    margin-bottom:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    color:#2157D5;
 }
 
-.section h2{
+.btn-outline{
+    border:2px solid #fff;
+    color:#fff;
+}
+
+.hero-card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    padding:35px;
+}
+
+.hero-card h3{
     margin-bottom:15px;
 }
 
-.features{
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:#0F3E83;
+}
+
+.cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:25px;
 }
 
 .card{
-    background:#f8f9fc;
-    padding:20px;
-    border-radius:12px;
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+    transition:.3s;
 }
 
-.contact{
-    text-align:center;
+.card:hover{
+    transform:translateY(-10px);
 }
 
-.contact a{
-    display:inline-block;
-    padding:15px 30px;
-    background:#1e55d6;
-    color:#fff;
-    text-decoration:none;
-    border-radius:50px;
-    margin-top:20px;
+.card-icon{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2157D5,
+    #56B7FF
+    );
+
+    margin-bottom:20px;
 }
 
-footer{
-    text-align:center;
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.step{
+    background:#fff;
+    border-radius:20px;
     padding:30px;
-    color:#777;
+    text-align:center;
 }
 
-@media(max-width:768px){
+.step-number{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    margin:auto;
+    margin-bottom:20px;
 
-.features{
-    grid-template-columns:1fr;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#2157D5;
+    color:#fff;
+    font-size:24px;
+    font-weight:800;
 }
 
-.quick-menu{
-    grid-template-columns:1fr;
+.cta{
+    background:
+    linear-gradient(
+    135deg,
+    #0F3E83,
+    #2157D5
+    );
+
+    color:#fff;
+    border-radius:30px;
+    padding:80px;
+    text-align:center;
 }
 
-.section{
+.cta h2{
+    font-size:3rem;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-top:40px;
+}
+
+.contact-box{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.contact-left{
+    width:130px;
+    height:130px;
+
+    background:#0F3E83;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    font-size:42px;
+}
+
+.contact-right{
     padding:25px;
 }
 
+.contact-right h3{
+    font-size:32px;
+    color:#2157D5;
 }
-</style>
 
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+.faq-item{
+    background:#fff;
+    margin-bottom:15px;
+    border-radius:15px;
+    padding:25px;
+}
+
+footer{
+    background:#0F3E83;
+    color:#fff;
+    text-align:center;
+    padding:40px;
+}
+
+@media(max-width:900px){
+
+.hero-inner,
+.cards,
+.steps,
+.contact-grid{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:2.7rem;
+}
+
+.hero{
+    padding-top:120px;
+}
+
+.menu{
+    display:none;
+}
+
+.cta{
+    padding:40px 20px;
+}
+
+}
+
+</style>
 </head>
 <body>
 
-<div class="container">
+<header>
+<div class="container nav">
+<div class="logo">금융상담센터</div>
 
-    <div class="banner">
-        <img src="images/banner1.jpg" alt="1-1">
-    </div>
+<nav class="menu">
+<a href="#service">서비스</a>
+<a href="#process">이용절차</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">문의</a>
+</nav>
+</div>
+</header>
 
-    <div class="banner">
-        <img src="images/banner2.jpg" alt="1-2">
-    </div>
+<section class="hero">
 
-    <div class="quick-menu">
-        <a href="#contact">
-            <img src="images/message.jpg" alt="1-전화">
-<a href="tel:01031425685">
-        </a>
+<div class="container hero-inner">
 
-        <a href="tel:01012345678">
-            <img src="images/call.jpg" alt="1-문자">
-<a href="sms:01031425685">
-        </a>
-    </div>
+<div>
 
-    <section class="section">
-        <h2>서비스 소개</h2>
-        <p>
-            여기에 회사 소개 및 서비스 설명을 입력하세요.
-        </p>
-    </section>
+<span class="badge">
+전문 금융상담 서비스
+</span>
 
-    <section class="section">
-        <h2>이용 안내</h2>
+<h1>
+신속하고 정확한 금융 정보 제공
+</h1>
 
-        <div class="features">
-            <div class="card">
-                <h3>STEP 01</h3>
-                <p>상담 신청</p>
-            </div>
+<p>
+고객 상황에 맞는 금융 정보를 쉽고 이해하기 쉽게 안내합니다.
+</p>
 
-            <div class="card">
-                <h3>STEP 02</h3>
-                <p>내용 확인</p>
-            </div>
+<div class="hero-btns">
+<a href="#contact" class="btn btn-primary">
+상담 신청
+</a>
 
-            <div class="card">
-                <h3>STEP 03</h3>
-                <p>서비스 진행</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section contact" id="contact">
-        <h2>문의하기</h2>
-        <p>궁금한 내용을 문의해 주세요.</p>
-
-        <a href="tel:01031425685">
-            전화 상담
-        </a>
-    </section>
+<a href="#service" class="btn btn-outline">
+자세히 보기
+</a>
+</div>
 
 </div>
 
+<div class="hero-card">
+
+<h3>빠른 문의</h3>
+
+<p>
+전화, 문자, 온라인 문의를 통해 상담을 신청하세요.
+</p>
+
+<br>
+
+<p>운영시간 : 24시간 접수</p>
+<p>대표번호 : 000-0000-0000</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="service">
+
+<div class="container">
+
+<div class="section-title">
+<h2>서비스 안내</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-icon"></div>
+<h3>금융정보 제공</h3>
+<p>고객이 이해하기 쉬운 금융정보 제공</p>
+</div>
+
+<div class="card">
+<div class="card-icon"></div>
+<h3>전문 상담</h3>
+<p>상황별 맞춤 상담 지원</p>
+</div>
+
+<div class="card">
+<div class="card-icon"></div>
+<h3>고객 지원</h3>
+<p>빠른 응대와 체계적인 관리</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-title">
+<h2>이용 절차</h2>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">1</div>
+상담 신청
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+내용 확인
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+상담 진행
+</div>
+
+<div class="step">
+<div class="step-number">4</div>
+안내 완료
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="cta">
+<h2>빠른 상담이 필요하신가요?</h2>
+<p>언제든지 문의해 주세요.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h2>문의하기</h2>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+
+<div class="contact-left">
+💬
+</div>
+
+<div class="contact-right">
+<p>실시간 문자상담</p>
+<h3>바로 문의하기</h3>
+</div>
+
+</div>
+
+<div class="contact-box">
+
+<div class="contact-left">
+📞
+</div>
+
+<div class="contact-right">
+<p>대표 상담번호</p>
+<h3>000-0000-0000</h3>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="faq">
+
+<div class="container">
+
+<div class="section-title">
+<h2>자주 묻는 질문</h2>
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+Q. 상담은 무료인가요?<br><br>
+A. 사이트 운영 정책에 따라 다를 수 있습니다.
+</div>
+
+<div class="faq-item">
+Q. 상담 신청은 어떻게 하나요?<br><br>
+A. 전화 또는 문의폼을 통해 신청 가능합니다.
+</div>
+
+<div class="faq-item">
+Q. 운영시간은 어떻게 되나요?<br><br>
+A. 운영 정책에 따라 상이합니다.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <footer>
-    © 2026 Company. All Rights Reserved.
+© 2026 금융상담센터. All Rights Reserved.
 </footer>
 
 </body>
